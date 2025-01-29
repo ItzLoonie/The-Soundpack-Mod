@@ -33,6 +33,7 @@ public static partial class SoundpackUtils
     public static bool win = false;
     public static bool loop = false;
     public static bool isRapid = false;
+    public static bool isHorseman = false;
     public static bool isTT = false;
     public static string gameVelocity = "";
     public static string loopString = "";
@@ -128,6 +129,25 @@ public static partial class SoundpackUtils
                             if (FindCustomSound(x.GetPath(rapidList))) return cachedSound.Value;
                         }
                         if (FindCustomSound(rapidList)) return cachedSound.Value;
+                    }
+                    if (isHorseman)
+                    {
+                        List<string> pathToApocLooping = ["Audio", "Music", "ApocalypseLooping"];
+                        foreach (CustomTrigger x in flattenedList)
+                        {
+                            if (FindCustomSound(x.GetPath(pathToApocLooping)))
+                            {
+                                loop = true;
+                                loopString = cachedSound.Value;
+                                return cachedSound.Value;
+                            }
+                        }
+                        if (FindCustomSound(pathToApocLooping))
+                        {
+                            loop = true;
+                            loopString = cachedSound.Value;
+                            return cachedSound.Value;
+                        }
                     }
                     else if (!string.IsNullOrEmpty(gameVelocity))
                     {

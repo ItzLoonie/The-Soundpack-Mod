@@ -61,15 +61,19 @@ namespace OtherStuff
                     {
                         case Role.PESTILENCE:
                             SoundpackUtils.pest = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                         case Role.DEATH:
                             SoundpackUtils.death = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                         case Role.FAMINE:
                             SoundpackUtils.fam = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                         case Role.WAR:
                             SoundpackUtils.war = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                     }
                     SoundpackUtils.loop = false;
@@ -101,7 +105,7 @@ namespace OtherStuff
             }
         }
     }
-    [HarmonyPatch(typeof(WhoDiedAndHowPanel), "HandleSubphaseWhoDied")]
+    /* [HarmonyPatch(typeof(WhoDiedAndHowPanel), "HandleSubphaseWhoDied")]
     class LoopCheck
     {
         static public void Prefix()
@@ -116,7 +120,7 @@ namespace OtherStuff
             }
 
         }
-    }
+    } */
 
     [HarmonyPatch(typeof(GameSimulation), "HandleTrialState")]
     class Trial

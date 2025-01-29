@@ -29,6 +29,7 @@ namespace OtherStuff{
     class EndGame {
         public static void Prefix(ICinematicData cinematicData){
             SoundpackUtils.isRapid = false;
+            SoundpackUtils.isHorseman = false;
             SoundpackUtils.loop = false;
             if(((FactionWinsCinematicData)cinematicData).winningFaction == FactionType.NONE){
                 SoundpackUtils.draw = true;
@@ -41,6 +42,7 @@ namespace OtherStuff{
         public static void Prefix(){
             SoundpackUtils.isTribunal = true;
             SoundpackUtils.isRapid = false;
+            SoundpackUtils.isHorseman = false;
             SoundpackUtils.loop = false;
         }
     }
@@ -62,6 +64,7 @@ namespace OtherStuff{
         public static void Prefix(ICinematicData a_cinematicData){
             SoundpackUtils.win = ((WrapUpCinematicData)a_cinematicData).didWin.GetElement(Pepper.GetMyPosition());
             SoundpackUtils.isRapid = false;
+            SoundpackUtils.isHorseman = false;
             SoundpackUtils.loop = false;
                 Service.Home.AudioService.StopMusic();
                 Service.Home.AudioService.PlayMusic("Audio/Music/LoginMusicLoop_old");
@@ -72,6 +75,7 @@ namespace OtherStuff{
         public static void Prefix(ICinematicData cinematicData){
             SoundpackUtils.win = ((RankedWrapUpCinematicData)cinematicData).didWin.GetElement(Pepper.GetMyPosition());
             SoundpackUtils.isRapid = false;
+            SoundpackUtils.isHorseman = false;
             SoundpackUtils.loop = false;
             Service.Home.AudioService.StopMusic();
             Service.Home.AudioService.PlayMusic("Audio/Music/LoginMusicLoop_old");
