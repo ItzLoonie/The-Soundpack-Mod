@@ -100,7 +100,7 @@ public static partial class SoundpackUtils
                         }
                         if (FindCustomSound(pathToRapidLooping)) return cachedSound.Value;
                     }
-                    if (isRapid)
+                    if (isRapid && !isHorseman)
                     {
                         if (ModSettings.GetBool("Looping Rapid Mode"))
                         {
