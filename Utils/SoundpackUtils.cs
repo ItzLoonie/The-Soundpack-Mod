@@ -78,6 +78,11 @@ public static partial class SoundpackUtils
                         return loopString;
                     }
                     PlayPhase playPhase = Service.Game.Sim.simulation.playPhaseState.Data.playPhase;
+                    if (playPhase == PlayPhase.FIRST_DAY)
+                    {
+                        isRapid = false;
+                        isHorseman = false;
+                    }
                     if ((playPhase == PlayPhase.FIRST_DISCUSSION || playPhase == PlayPhase.FIRST_DAY) && ogSoundPathNames[2] == "DiscussionMusic")
                     {
                         List<Role> modifiers = Service.Game.Sim.simulation.roleDeckBuilder.Data.modifierCards;
@@ -132,22 +137,32 @@ public static partial class SoundpackUtils
                     }
                     if (isHorseman)
                     {
-                        List<string> pathToApocLooping = ["Audio", "Music", "ApocalypseLooping"];
-                        foreach (CustomTrigger x in flattenedList)
                         {
-                            if (FindCustomSound(x.GetPath(pathToApocLooping)))
+                            List<string> pathToApocLooping = ["Audio", "Music", "ApocalypseLooping"];
+                            foreach (CustomTrigger x in flattenedList)
+                            {
+                                if (FindCustomSound(x.GetPath(pathToApocLooping)))
+                                {
+                                    loop = true;
+                                    loopString = cachedSound.Value;
+                                    return cachedSound.Value;
+                                }
+                            }
+                            if (FindCustomSound(pathToApocLooping))
                             {
                                 loop = true;
                                 loopString = cachedSound.Value;
                                 return cachedSound.Value;
                             }
                         }
-                        if (FindCustomSound(pathToApocLooping))
+                        List<string> apocList = ogSoundPathNames.ShallowCopy();
+                        if (customVelocityTriggers.Resolve(apocList, true, "Apocalypse")) return cachedSound.Value;
+                        apocList[2] = "Apocalypse" + apocList[2];
+                        foreach (CustomTrigger x in flattenedList)
                         {
-                            loop = true;
-                            loopString = cachedSound.Value;
-                            return cachedSound.Value;
+                            if (FindCustomSound(x.GetPath(apocList))) return cachedSound.Value;
                         }
+                        if (FindCustomSound(apocList)) return cachedSound.Value;
                     }
                     else if (!string.IsNullOrEmpty(gameVelocity))
                     {
