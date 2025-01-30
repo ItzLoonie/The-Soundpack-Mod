@@ -68,6 +68,12 @@ public static partial class SoundpackUtils
         {
             if (Leo.IsGameScene() && Pepper.IsGamePhasePlay())
             {
+                if (playPhase == PlayPhase.FIRST_DAY)
+                {
+                    isRapid = false;
+                    isHorseman = false;
+                }
+
                 flattenedList = customFolderTriggers.Flat();
                 roleData = RoleExtensions.GetRoleData(Pepper.GetMyRole());
                 alignment = roleData.roleAlignment.ToString().ToTitleCase();
@@ -78,11 +84,6 @@ public static partial class SoundpackUtils
                         return loopString;
                     }
                     PlayPhase playPhase = Service.Game.Sim.simulation.playPhaseState.Data.playPhase;
-                    if (playPhase == PlayPhase.FIRST_DAY)
-                    {
-                        isRapid = false;
-                        isHorseman = false;
-                    }
                     if ((playPhase == PlayPhase.FIRST_DISCUSSION || playPhase == PlayPhase.FIRST_DAY) && ogSoundPathNames[2] == "DiscussionMusic")
                     {
                         List<Role> modifiers = Service.Game.Sim.simulation.roleDeckBuilder.Data.modifierCards;
