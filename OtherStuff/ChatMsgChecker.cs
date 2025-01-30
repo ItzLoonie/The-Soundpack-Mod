@@ -61,15 +61,19 @@ namespace OtherStuff
                     {
                         case Role.PESTILENCE:
                             SoundpackUtils.pest = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                         case Role.DEATH:
                             SoundpackUtils.death = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                         case Role.FAMINE:
                             SoundpackUtils.fam = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                         case Role.WAR:
                             SoundpackUtils.war = true;
+                            SoundpackUtils.isHorseman = true;
                             break;
                     }
                     SoundpackUtils.loop = false;
@@ -107,6 +111,7 @@ namespace OtherStuff
         static public void Prefix()
         {
             SoundpackUtils.isRapid = false;
+            SoundpackUtils.isHorseman = false;
             if (SoundpackUtils.loop)
             {
                 SoundpackUtils.loop = false;

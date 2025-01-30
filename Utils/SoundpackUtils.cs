@@ -43,7 +43,7 @@ public static partial class SoundpackUtils
     public static bool death = false;
     public static bool war = false;
     public static bool fam = false;
-    public static bool isHorseman = pest || death || war || fam;
+    public static bool isHorseman = false;
     public static bool isHaunt = false;
     public static string directoryPath;
     public static string soundpack;
