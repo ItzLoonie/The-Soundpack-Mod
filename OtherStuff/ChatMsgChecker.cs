@@ -105,13 +105,13 @@ namespace OtherStuff
             }
         }
     }
-     [HarmonyPatch(typeof(WhoDiedAndHowPanel), "HandleSubphaseWhoDied")]
+    /* [HarmonyPatch(typeof(WhoDiedAndHowPanel), "HandleSubphaseWhoDied")]
     class LoopCheck
     {
         static public void Prefix()
         {
             SoundpackUtils.isRapid = false;
-            SoundpackUtils.isHorseman = false;
+            SoundpackUtils.isHorseman = false; 
             if (SoundpackUtils.loop)
             {
                 SoundpackUtils.loop = false;
@@ -122,7 +122,7 @@ namespace OtherStuff
 
         }
     } 
-
+ */
     [HarmonyPatch(typeof(GameSimulation), "HandleTrialState")]
     class Trial
     {
