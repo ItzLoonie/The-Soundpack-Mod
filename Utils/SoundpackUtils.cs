@@ -94,6 +94,7 @@ public static partial class SoundpackUtils
                             gameVelocity = "";
                         }
                         List<string> pathToRapidLooping = ["Audio", "Music", "DayOne"];
+                        isHorseman = false;
                         foreach (CustomTrigger x in flattenedList)
                         {
                             if (FindCustomSound(x.GetPath(pathToRapidLooping))) return cachedSound.Value;
