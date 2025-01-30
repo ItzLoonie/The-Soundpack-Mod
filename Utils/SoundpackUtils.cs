@@ -69,12 +69,6 @@ public static partial class SoundpackUtils
             if (Leo.IsGameScene() && Pepper.IsGamePhasePlay())
             {
                 PlayPhase playPhase = Service.Game.Sim.simulation.playPhaseState.Data.playPhase;
-                if (playPhase == PlayPhase.FIRST_DAY)
-                {
-                    isRapid = false;
-                    isHorseman = false;
-                }
-
                 flattenedList = customFolderTriggers.Flat();
                 roleData = RoleExtensions.GetRoleData(Pepper.GetMyRole());
                 alignment = roleData.roleAlignment.ToString().ToTitleCase();
