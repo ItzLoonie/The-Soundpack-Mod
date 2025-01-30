@@ -33,7 +33,6 @@ public static partial class SoundpackUtils
     public static bool win = false;
     public static bool loop = false;
     public static bool isRapid = false;
-    public static bool isHorseman = false;
     public static bool isTT = false;
     public static string gameVelocity = "";
     public static string loopString = "";
@@ -44,6 +43,7 @@ public static partial class SoundpackUtils
     public static bool death = false;
     public static bool war = false;
     public static bool fam = false;
+    public static bool isHorseman = pest || death || war || fam;
     public static bool isHaunt = false;
     public static string directoryPath;
     public static string soundpack;
@@ -68,6 +68,7 @@ public static partial class SoundpackUtils
         {
             if (Leo.IsGameScene() && Pepper.IsGamePhasePlay())
             {
+                isHorseman = false;
                 PlayPhase playPhase = Service.Game.Sim.simulation.playPhaseState.Data.playPhase;
                 flattenedList = customFolderTriggers.Flat();
                 roleData = RoleExtensions.GetRoleData(Pepper.GetMyRole());
@@ -94,7 +95,6 @@ public static partial class SoundpackUtils
                             gameVelocity = "";
                         }
                         List<string> pathToRapidLooping = ["Audio", "Music", "DayOne"];
-                        isHorseman = false;
                         foreach (CustomTrigger x in flattenedList)
                         {
                             if (FindCustomSound(x.GetPath(pathToRapidLooping))) return cachedSound.Value;
