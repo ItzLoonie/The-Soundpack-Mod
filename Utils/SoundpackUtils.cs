@@ -33,7 +33,7 @@ public static partial class SoundpackUtils
     public static bool win = false;
     public static bool loop = false;
     public static bool isRapid = false;
-    public static bool isHorseman = false;
+    public static bool isHorseman = false; 
     public static bool isTT = false;
     public static string gameVelocity = "";
     public static string loopString = "";
