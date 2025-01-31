@@ -103,6 +103,7 @@ namespace OtherStuff
                     SoundpackUtils.war = false;
                     break;
             }
+            if (!SoundpackUtils.pest && !SoundpackUtils.death && !SoundpackUtils.fam && !SoundpackUtils.war) SoundpackUtils.isHorseman = false;
         }
     }
     /* [HarmonyPatch(typeof(WhoDiedAndHowPanel), "HandleSubphaseWhoDied")]
