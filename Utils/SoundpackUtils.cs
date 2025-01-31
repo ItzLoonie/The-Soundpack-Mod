@@ -182,7 +182,36 @@ public static partial class SoundpackUtils
                         }
                         List<string> tribList = ogSoundPathNames.ShallowCopy();
                         if (customVelocityTriggers.Resolve(tribList, true, "Tribunal")) return cachedSound.Value;
-                        tribList[2] = "Apocalypse" + tribList[2];
+                        tribList[2] = "Tribunal" + tribList[2];
+                        foreach (CustomTrigger x in flattenedList)
+                        {
+                            if (FindCustomSound(x.GetPath(tribList))) return cachedSound.Value;
+                        }
+                        if (FindCustomSound(tribList)) return cachedSound.Value;
+                    }
+                    if (isTT && !isHorseman && !isTribunal && !prosecutor && !isRapid)
+                    {
+                        {
+                            List<string> pathToTTLooping = ["Audio", "Music", "TownTraitorLooping"];
+                            foreach (CustomTrigger x in flattenedList)
+                            {
+                                if (FindCustomSound(x.GetPath(pathToTTLooping)))
+                                {
+                                    loop = true;
+                                    loopString = cachedSound.Value;
+                                    return cachedSound.Value;
+                                }
+                            }
+                            if (FindCustomSound(pathToTTLooping))
+                            {
+                                loop = true;
+                                loopString = cachedSound.Value;
+                                return cachedSound.Value;
+                            }
+                        }
+                        List<string> tribList = ogSoundPathNames.ShallowCopy();
+                        if (customVelocityTriggers.Resolve(tribList, true, "TownTraitorMusic")) return cachedSound.Value;
+                        tribList[2] = "TownTraitorMusic" + tribList[2];
                         foreach (CustomTrigger x in flattenedList)
                         {
                             if (FindCustomSound(x.GetPath(tribList))) return cachedSound.Value;
