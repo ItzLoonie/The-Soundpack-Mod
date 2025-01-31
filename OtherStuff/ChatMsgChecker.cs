@@ -41,6 +41,10 @@ namespace OtherStuff
                     case GameFeedbackMessage.LYNCHED_JESTER:
                     SoundpackUtils.isHaunt = true;
                     break;
+                    case GameFeedbackMessage.EXECUTED_PLAYER_HAS_LAST_WILL:
+                    case GameFeedbackMessage.EXECUTED_PLAYER_HAS_NO_LAST_WILL:
+                    SoundpackUtils.isTribunal = false;
+                    break;
                 }
             }
         }
