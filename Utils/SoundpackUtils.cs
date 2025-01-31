@@ -160,35 +160,6 @@ public static partial class SoundpackUtils
                         }
                         if (FindCustomSound(apocList)) return cachedSound.Value;
                     }
-                    if (isTribunal)
-                    {
-                        {
-                            List<string> pathToTribLooping = ["Audio", "Music", "TribunalLooping"];
-                            foreach (CustomTrigger x in flattenedList)
-                            {
-                                if (FindCustomSound(x.GetPath(pathToTribLooping)))
-                                {
-                                    loop = true;
-                                    loopString = cachedSound.Value;
-                                    return cachedSound.Value;
-                                }
-                            }
-                            if (FindCustomSound(pathToTribLooping))
-                            {
-                                loop = true;
-                                loopString = cachedSound.Value;
-                                return cachedSound.Value;
-                            }
-                        }
-                        List<string> tribList = ogSoundPathNames.ShallowCopy();
-                        if (customVelocityTriggers.Resolve(tribList, true, "Tribunal")) return cachedSound.Value;
-                        tribList[2] = "Tribunal" + tribList[2];
-                        foreach (CustomTrigger x in flattenedList)
-                        {
-                            if (FindCustomSound(x.GetPath(tribList))) return cachedSound.Value;
-                        }
-                        if (FindCustomSound(tribList)) return cachedSound.Value;
-                    }
                     if (isTT && !isHorseman && !isTribunal && !prosecutor && !isRapid)
                     {
                         {

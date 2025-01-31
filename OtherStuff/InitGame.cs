@@ -34,7 +34,6 @@ namespace OtherStuff
             SoundpackUtils.isTribunal = false;
             SoundpackUtils.isHorseman = false;
             SoundpackUtils.isRapid = false;
-            SoundpackUtils.isTribunal = false;
             SoundpackUtils.isParty = false;
             if (ModSettings.GetBool("Randomize Soundpacks") && SoundpackUtils.soundpacks.Count > 0)
             {
