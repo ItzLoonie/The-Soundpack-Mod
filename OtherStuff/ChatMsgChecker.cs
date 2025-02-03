@@ -61,19 +61,19 @@ namespace OtherStuff
                     {
                         case Role.PESTILENCE:
                             SoundpackUtils.pest = true;
-                            SoundpackUtils.isHorseman = true;
+                            // SoundpackUtils.isHorseman = true;
                             break;
                         case Role.DEATH:
                             SoundpackUtils.death = true;
-                            SoundpackUtils.isHorseman = true;
+                            // SoundpackUtils.isHorseman = true;
                             break;
                         case Role.FAMINE:
                             SoundpackUtils.fam = true;
-                            SoundpackUtils.isHorseman = true;
+                            // SoundpackUtils.isHorseman = true;
                             break;
                         case Role.WAR:
                             SoundpackUtils.war = true;
-                            SoundpackUtils.isHorseman = true;
+                            // SoundpackUtils.isHorseman = true;
                             break;
                     }
                     SoundpackUtils.loop = false;
@@ -103,7 +103,7 @@ namespace OtherStuff
                     SoundpackUtils.war = false;
                     break;
             }
-            if (!SoundpackUtils.pest && !SoundpackUtils.death && !SoundpackUtils.fam && !SoundpackUtils.war) SoundpackUtils.isHorseman = false;
+            // if (!SoundpackUtils.pest && !SoundpackUtils.death && !SoundpackUtils.fam && !SoundpackUtils.war) SoundpackUtils.isHorseman = false;
         }
     }
     /* [HarmonyPatch(typeof(WhoDiedAndHowPanel), "HandleSubphaseWhoDied")]

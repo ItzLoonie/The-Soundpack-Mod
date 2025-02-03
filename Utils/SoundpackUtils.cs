@@ -101,7 +101,7 @@ public static partial class SoundpackUtils
                         }
                         if (FindCustomSound(pathToRapidLooping)) return cachedSound.Value;
                     }
-                    if (isRapid && !isHorseman)
+                    if (isRapid && !(war || pest || fam || death))
                     {
                         if (ModSettings.GetBool("Looping Rapid Mode"))
                         {
@@ -131,7 +131,7 @@ public static partial class SoundpackUtils
                         }
                         if (FindCustomSound(rapidList)) return cachedSound.Value;
                     }
-                    if (isHorseman && !isTribunal)
+                    if ((war || pest || fam || death) && !isTribunal)
                     {
                         {
                             List<string> pathToApocLooping = ["Audio", "Music", "ApocalypseLooping"];
@@ -160,7 +160,7 @@ public static partial class SoundpackUtils
                         }
                         if (FindCustomSound(apocList)) return cachedSound.Value;
                     }
-                    if (isTT && !isHorseman && !isTribunal && !prosecutor && !isRapid)
+                    if (isTT && !(war || pest || fam || death) && !isTribunal && !prosecutor && !isRapid)
                     {
                         {
                             List<string> pathToTTLooping = ["Audio", "Music", "TownTraitorLooping"];
