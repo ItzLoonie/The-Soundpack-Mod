@@ -61,15 +61,19 @@ namespace OtherStuff
                     {
                         case Role.PESTILENCE:
                             SoundpackUtils.pest = true;
+                            SoundpackUtils.isApocalypse = true;
                             break;
                         case Role.DEATH:
                             SoundpackUtils.death = true;
+                            SoundpackUtils.isApocalypse = true;
                             break;
                         case Role.FAMINE:
                             SoundpackUtils.fam = true;
+                            SoundpackUtils.isApocalypse = true;
                             break;
                         case Role.WAR:
                             SoundpackUtils.war = true;
+                            SoundpackUtils.isApocalypse = true;
                             break;
                     }
                     SoundpackUtils.loop = false;
@@ -88,15 +92,19 @@ namespace OtherStuff
             {
                 case Role.PESTILENCE:
                     SoundpackUtils.pest = false;
+                    SoundpackUtils.isApocalypse = false;
                     break;
                 case Role.DEATH:
                     SoundpackUtils.death = false;
+                    SoundpackUtils.isApocalypse = false;
                     break;
                 case Role.FAMINE:
                     SoundpackUtils.fam = false;
+                    SoundpackUtils.isApocalypse = false;
                     break;
                 case Role.WAR:
                     SoundpackUtils.war = false;
+                    SoundpackUtils.isApocalypse = false;
                     break;
             }
         }

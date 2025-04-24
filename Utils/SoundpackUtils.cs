@@ -33,6 +33,7 @@ public static partial class SoundpackUtils
     public static bool win = false;
     public static bool loop = false;
     public static bool isRapid = false;
+    public static bool isApocalypse = false;
     public static bool isTT = false;
     public static string gameVelocity = "";
     public static string loopString = "";
@@ -99,7 +100,7 @@ public static partial class SoundpackUtils
                         }
                         if (FindCustomSound(pathToRapidLooping)) return cachedSound.Value;
                     }
-                    if (isRapid)
+                    if (isRapid && !isApocalypse)
                     {
                         if (ModSettings.GetBool("Looping Rapid Mode"))
                         {
@@ -128,6 +129,35 @@ public static partial class SoundpackUtils
                             if (FindCustomSound(x.GetPath(rapidList))) return cachedSound.Value;
                         }
                         if (FindCustomSound(rapidList)) return cachedSound.Value;
+                    }
+                    else if (isRapidisApocalypse)
+                    {
+                        {
+                            List<string> pathToApocLooping = ["Audio", "Music", "ApocalypseLooping"];
+                            foreach (CustomTrigger x in flattenedList)
+                            {
+                                if (FindCustomSound(x.GetPath(pathToApocLooping)))
+                                {
+                                    loop = true;
+                                    loopString = cachedSound.Value;
+                                    return cachedSound.Value;
+                                }
+                            }
+                            if (FindCustomSound(pathToApocLooping))
+                            {
+                                loop = true;
+                                loopString = cachedSound.Value;
+                                return cachedSound.Value;
+                            }
+                        }
+                        List<string> apocList = ogSoundPathNames.ShallowCopy();
+                        if (customVelocityTriggers.Resolve(apocList, true, "Apocalypse")) return cachedSound.Value;
+                        apocList[2] = "Apocalypse" + rapidList[2];
+                        foreach (CustomTrigger x in flattenedList)
+                        {
+                            if (FindCustomSound(x.GetPath(apocList))) return cachedSound.Value;
+                        }
+                        if (FindCustomSound(apocList)) return cachedSound.Value;
                     }
                     else if (!string.IsNullOrEmpty(gameVelocity))
                     {

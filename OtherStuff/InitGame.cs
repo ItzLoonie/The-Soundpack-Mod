@@ -24,6 +24,7 @@ namespace OtherStuff
             SoundpackUtils.death = false;
             SoundpackUtils.fam = false;
             SoundpackUtils.war = false; 
+            SoundpackUtils.isApocalypse = false; 
             SoundpackUtils.targetOnStand = false;
             SoundpackUtils.playerOnStand = false;
             SoundpackUtils.prosecutor = false;
